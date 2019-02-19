@@ -11,12 +11,15 @@ const friendsModule = {
             </div>
         `
     },
-    buildFriendsObject: () => {
-        const friendsObject = {}
-        friendsObject.text = document.getElementById("chat--textInput").value
-        friendsObject.timestamp = parseInt(Date.now())
-        friendsObject.userId = parseInt(sessionStorage.getItem('userId'))
-        return friendsObject
+    buildFriendsObject: (friendedUserObject) => {
+        let userId = sessionStorage.userId
+        let friendedUser = friendedUserObject.id
+        let friendRelatioshipObject = {
+            userId: userId,
+            friendedUser: friendedUser
+        }
+        return friendRelatioshipObject
+
     },
     buildFriendsHTML: (chatObject, username, userId) => {
     //     const chatTimestamp = timeConverter(chatObject.timestamp)
